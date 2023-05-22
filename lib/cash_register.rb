@@ -29,38 +29,30 @@ class CashRegister
       @total = 0.0 if @items.empty?
     end
   end
-# Creating a CashRegister instance with a 20% employee discount
-register = CashRegister.new(20)
+  
+  register = CashRegister.new(20)
 
-# Adding items to the cash register
-register.add_item("Apple", 3)
-register.add_item("Banana", 2, 2)
-register.add_item("Orange", 4, 3)
-
-# Printing the current total
-puts "Current Total: $#{register.total}"
-# Output: Current Total: $21
-
-# Applying the discount
-puts register.apply_discount
-# Output: After applying a 20% discount, the total is $16.8
-
-# Printing the list of items
-puts "Items: #{register.items}"
-# Output: Items: [{:title=>"Apple", :price=>3, :quantity=>1}, {:title=>"Banana", :price=>2, :quantity=>2}, {:title=>"Orange", :price=>4, :quantity=>3}]
-
-# Voiding the last transaction
-register.void_last_transaction
-
-# Printing the updated total after voiding the last transaction
-puts "Updated Total: $#{register.total}"
-# Output: Updated Total: $12
-
-# Voiding all transactions
-register.void_last_transaction
-register.void_last_transaction
-register.void_last_transaction
-
-# Printing the total after voiding all transactions
-puts "Total after voiding all transactions: $#{register.total}"
-# Output: Total after voiding all transactions: $0.0
+  puts register.items.inspect
+  # Output: nil
+  
+  register.add_item("Apple", 3)
+  register.add_item("Banana", 2, 2)
+  
+  puts register.items.inspect
+  # Output: [{:title=>"Apple", :price=>3, :quantity=>1}, {:title=>"Banana", :price=>2, :quantity=>2}]
+  
+  # Voiding the last transaction
+  register.void_last_transaction
+  
+  # Printing the updated total after voiding the last transaction
+  puts "Updated Total: $#{register.total}"
+  # Output: Updated Total: $12
+  
+  # Voiding all transactions
+  register.void_last_transaction
+  register.void_last_transaction
+  register.void_last_transaction
+  
+  # Printing the total after voiding all transactions
+  puts "Total after voiding all transactions: $#{register.total}"
+  # Output: Total after voiding all transactions: $0.0
